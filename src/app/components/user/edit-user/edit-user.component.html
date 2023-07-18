@@ -1,0 +1,40 @@
+<div class="container my-5">
+    <h1 class="mb-3">Edit User</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="updateUser()">
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                  <label for="id" class="form-label">Id</label>
+                  <input type="text" class="form-control" id="id" readonly 
+                  name="id"[(ngModel)]="userDetail.id" >
+                </div>
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" 
+                    name="name"[(ngModel)]="userDetail.name" >
+                </div>
+
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" 
+                    name="email" [(ngModel)]="userDetail.email">
+                </div>
+
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="text" class="form-control" id="password"
+                    name="password" [(ngModel)]="userDetail.password" >
+                </div>
+
+                <div class="clearfix">
+                    <button type="submit" class="btn btn-outline-primary float-start">Save</button>
+                    <button type="button" class="btn btn-outline-danger float-end"
+                    (click)="deleteUser(userDetail.id)">Delete</button>
+                </div>  
+               
+              </form>
+        </div>
+    </div>
+   
+</div>

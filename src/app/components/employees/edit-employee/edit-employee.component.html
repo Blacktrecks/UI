@@ -1,0 +1,51 @@
+<div class="container my-5">
+    <h1 class="mb-3">Edit Employee</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="updateEmployee()">
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                  <label for="id" class="form-label">Id</label>
+                  <input type="text" class="form-control" id="id" readonly 
+                  name="id"[(ngModel)]="employeeDetails.id" >
+                </div>
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" 
+                    name="name"[(ngModel)]="employeeDetails.name" >
+                </div>
+
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" 
+                    name="email" [(ngModel)]="employeeDetails.email">
+                </div>
+
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="number" class="form-control" id="phone"
+                    name="phone" [(ngModel)]="employeeDetails.phone " >
+                </div>
+
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="number" class="form-control" id="salary"
+                    name="salary" [(ngModel)]="employeeDetails.salary" >
+                </div>
+
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="department" class="form-label">Department</label>
+                    <input type="text" class="form-control" id="salary" 
+                    name="department" [(ngModel)]="employeeDetails.department">
+                </div>    
+                <div class="clearfix">
+                    <button type="submit" class="btn btn-outline-primary float-start">Save</button>
+                    <button type="button" class="btn btn-outline-danger float-end"
+                    (click)="deleteEmployee(employeeDetails.id)">Delete</button>
+                </div>  
+               
+              </form>
+        </div>
+    </div>
+   
+</div>

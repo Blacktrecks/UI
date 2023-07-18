@@ -1,0 +1,54 @@
+<div class="container my-5">
+    <h1 class="mb-3">Add New Employee</h1>
+
+    <div class="row">
+        <div class="col-6">
+
+            <form  #form="ngForm" (ngSubmit)="addEmployee()">
+              
+
+                <div class="mb-3">
+                    <label for="namevalidation" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name"  placeholder="Required Name" name="name" [(ngModel)]="addEmployeeRequest.name" value="Marks" required>
+                    <div class="invalid-feedback">
+                        Please enter a message in the textarea.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input required #email="ngModel"  placeholder="Required Email" type="email" class="form-control" id="email" name="email"
+                        [(ngModel)]="addEmployeeRequest.email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input required #phone="ngModel" type="number"  class="form-control" id="phone" name="phone"
+                        [(ngModel)]="addEmployeeRequest.phone ">
+                </div>
+
+                <div class="mb-3">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input required #salary="ngModel" type="number" class="form-control" id="salary" name="salary"
+                        [(ngModel)]="addEmployeeRequest.salary">
+                </div>
+
+                <div class="mb-3">
+                    <label for="department" class="form-label">Department</label>
+                    <input required #department="ngModel" type="text"  placeholder="Required Name" class="form-control" id="department" name="department"
+                        [(ngModel)]="addEmployeeRequest.department">
+                </div>
+
+                <div class="mb-3">
+                    <input type="file" class="form-control" aria-label="file example" required>
+                    <div class="invalid-feedback">Example invalid form file feedback</div>
+                </div>
+
+                <button type="submit"  class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+                
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
