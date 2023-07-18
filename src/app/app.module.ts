@@ -21,6 +21,7 @@ import { DarkModeButtonComponent } from './components/dark-mode-button/dark-mode
 import { SearchEmployeeComponent } from './components/employees/search-employee/search-employee.component';
 import { SearchUsersComponent } from './components/user/search-users/search-users.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { SearchUsersComponent } from './components/user/search-users/search-user
     UploadAvatarComponent,
     DarkModeButtonComponent,
     SearchEmployeeComponent,
-    SearchUsersComponent
+    SearchUsersComponent,
+    
   ],
   imports: [
     BrowserModule,
