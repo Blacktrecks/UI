@@ -8,11 +8,13 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(public auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   login(): void {
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect().subscribe(() => {
+      this.router.navigate(['/register']); // Replace '/main' with your desired main page route
+    });
   }
 }
