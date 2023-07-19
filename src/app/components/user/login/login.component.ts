@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthService, LogoutOptions } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,10 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.auth.loginWithRedirect().subscribe(() => {
-      this.router.navigate(['/register']); // Replace '/main' with your desired main page route
+      this.router.navigate(['/main']); // Replace '/main' with your desired main page route
     });
+  }
+  logout(): void{
+    this.auth.logout();
   }
 }

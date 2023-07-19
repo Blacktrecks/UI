@@ -52,7 +52,7 @@ import { SearchUsersComponent } from './components/user/search-users/search-user
       clientId: 'EbNu4YDqqUpY3jKuHdJeMORBQul65rgW',
       
       authorizationParams: {
-        redirect_uri:  'http://localhost:4200/callback'
+        redirect_uri:  'http://localhost:4200'
       }
     }),
   ],

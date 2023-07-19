@@ -10,6 +10,8 @@ import { EditUserComponent } from './components/user/edit-user/edit-user.compone
 import { UploadAvatarComponent } from './components/upload-avatar/upload-avatar.component';
 import { SearchEmployeeComponent } from './components/employees/search-employee/search-employee.component';
 import { SearchUsersComponent } from './components/user/search-users/search-users.component';
+import { AppComponent } from './app.component';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
  
@@ -45,6 +47,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  //Ziua 8 asta te duce in log in pentru a putea accesa pagina
+  //{
+  //  path: '', component: AppComponent, canActivate: [AuthGuard]
+ // },
   {
     path: 'users/edit/:id',
     component: EditUserComponent
