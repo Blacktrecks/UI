@@ -21,6 +21,7 @@ import { DarkModeButtonComponent } from './components/dark-mode-button/dark-mode
 import { SearchEmployeeComponent } from './components/employees/search-employee/search-employee.component';
 import { SearchUsersComponent } from './components/user/search-users/search-users.component';
 import { AuthTokenComponent } from './components/auth-token/auth-token.component';
+import { EmailFormComponent } from './components/email-form/email-form.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { AuthTokenComponent } from './components/auth-token/auth-token.component
     SearchEmployeeComponent,
     SearchUsersComponent,
     AuthTokenComponent,
+    EmailFormComponent,
     
   ],
   imports: [

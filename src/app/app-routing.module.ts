@@ -13,6 +13,7 @@ import { SearchUsersComponent } from './components/user/search-users/search-user
 import { AppComponent } from './app.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { AuthTokenComponent } from './components/auth-token/auth-token.component';
+import { EmailFormComponent } from './components/email-form/email-form.component';
 
 const routes: Routes = [
  
@@ -63,6 +64,11 @@ const routes: Routes = [
     component: EditUserComponent
     
   },
+  //Ziua 8: FOrm EMail ROuting
+{
+  path: 'form',
+  component: EmailFormComponent
+},
 
   {
     path: 'upload',

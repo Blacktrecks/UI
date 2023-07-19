@@ -1,0 +1,62 @@
+/* Main wrapper */
+.formbold-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  /* Form wrapper */
+  .formbold-form-wrapper {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Form label */
+  .formbold-form-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Form input */
+  .formbold-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  /* Form textarea */
+  .formbold-form-input textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  /* Submit button */
+  .formbold-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Submit button hover */
+  .formbold-btn:hover {
+    background-color: #555;
+  }
+  
+  .error {
+    border-color: red;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+  
