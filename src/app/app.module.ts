@@ -20,6 +20,7 @@ import { AuthService } from '@auth0/auth0-angular/lib/auth.service';
 import { DarkModeButtonComponent } from './components/dark-mode-button/dark-mode-button.component';
 import { SearchEmployeeComponent } from './components/employees/search-employee/search-employee.component';
 import { SearchUsersComponent } from './components/user/search-users/search-users.component';
+import { AuthTokenComponent } from './components/auth-token/auth-token.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { SearchUsersComponent } from './components/user/search-users/search-user
     DarkModeButtonComponent,
     SearchEmployeeComponent,
     SearchUsersComponent,
+    AuthTokenComponent,
     
   ],
   imports: [

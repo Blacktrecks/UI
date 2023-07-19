@@ -12,6 +12,7 @@ import { SearchEmployeeComponent } from './components/employees/search-employee/
 import { SearchUsersComponent } from './components/user/search-users/search-users.component';
 import { AppComponent } from './app.component';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { AuthTokenComponent } from './components/auth-token/auth-token.component';
 
 const routes: Routes = [
  
@@ -51,6 +52,12 @@ const routes: Routes = [
   //{
   //  path: '', component: AppComponent, canActivate: [AuthGuard]
  // },
+
+ //Ziua 8: Show Login Token
+ {
+   path: 'token',
+   component: AuthTokenComponent
+ },
   {
     path: 'users/edit/:id',
     component: EditUserComponent

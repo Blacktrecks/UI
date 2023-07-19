@@ -1,0 +1,8 @@
+.employees-container {
+    margin-top: 80px; /* Adjust the value as needed to create spacing below the navbar */
+  }
+  
+  .no-employees-message {
+    margin-top: 20px; /* Add margin to create spacing between the table and the message */
+  }
+  

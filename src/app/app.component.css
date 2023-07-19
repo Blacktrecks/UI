@@ -51,3 +51,8 @@
     border-color: #218838;
   }
   /* Example dark mode styles */
+  .content-container {
+    margin-top: 80px; /* Adjust the value as needed to create spacing below the fixed navbar */
+    padding-bottom: 20px; /* Add padding at the bottom to create space for the content */
+  }
+  

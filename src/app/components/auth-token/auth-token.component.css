@@ -1,0 +1,45 @@
+.text-center {
+    text-align: center;
+  }
+  
+  .btn {
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-weight: bold;
+  }
+  
+  p[hidden] {
+    display: none;
+  }
+  .name-container {
+    border: 2px solid #ff7f50; /* Example color: Coral */
+    background-color: #fffacd; /* Example color: LemonChiffon */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .name-label {
+    color: #ff7f50; /* Example color: Coral */
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .name-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fffacd; /* Example color: LemonChiffon */
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+  
+  .name-label {
+    color: #ff7f50; /* Example color: Coral */
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
