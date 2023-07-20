@@ -15,6 +15,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
 import { AuthTokenComponent } from './components/auth-token/auth-token.component';
 import { EmailFormComponent } from './components/email-form/email-form.component';
 
+
 const routes: Routes = [
  
   {
@@ -75,6 +76,7 @@ const routes: Routes = [
     component: UploadAvatarComponent
     
   },
+
   
 ];
 

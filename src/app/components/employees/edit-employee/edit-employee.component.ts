@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar'; // Import MatSnackBar
 import { Employee } from 'src/app/modules/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
 
@@ -24,7 +25,8 @@ export class EditEmployeeComponent {
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeesService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar // Inject MatSnackBar here
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +45,13 @@ export class EditEmployeeComponent {
     this.employeeService.updateEmployee(this.employeeDetails.id, this.employeeDetails)
       .subscribe({
         next: (response) => {
+          this.snackBar.open('Employee successfully edited', 'Close', {
+            duration: 3000,
+          });
           this.router.navigate(['employees']);
+        },
+        error: (err) => {
+          // Handle error if necessary and show snackbar with appropriate error message if desired
         }
       });
   }
@@ -52,7 +60,13 @@ export class EditEmployeeComponent {
     this.employeeService.deleteEmployee(id)
     .subscribe({
       next: (response) => {
+        this.snackBar.open('Employee successfully deleted', 'Close', {
+          duration: 3000,
+        });
         this.router.navigate(['employees']);
+      },
+      error: (err) => {
+        // Handle error if necessary and show snackbar with appropriate error message if desired
       }
     });
   }

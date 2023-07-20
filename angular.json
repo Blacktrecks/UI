@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FullStack.UI": {
+    "FullStackUI": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,7 +25,11 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.scss",
               "src/styles.css"
+
+
+              
             ],
             "scripts": []
           },

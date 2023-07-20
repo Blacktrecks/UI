@@ -1,11 +1,11 @@
+/* dark-mode-button-dark.css */
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-  }
-  
+  background-color: #1e1e1e; /* Dark background color */
+  border-color: #1e1e1e; /* Dark border color */
+  color: #fff; /* Text color in dark mode */
+}
+
+.btn-primary:hover {
+  background-color: #444; /* Dark background color on hover */
+  border-color: #444; /* Dark border color on hover */
+}

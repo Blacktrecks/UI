@@ -1,45 +1,32 @@
-.text-center {
-    text-align: center;
-  }
-  
-  .btn {
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-weight: bold;
-  }
-  
-  p[hidden] {
-    display: none;
-  }
-  .name-container {
-    border: 2px solid #ff7f50; /* Example color: Coral */
-    background-color: #fffacd; /* Example color: LemonChiffon */
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  .name-label {
-    color: #ff7f50; /* Example color: Coral */
-    font-weight: bold;
-    font-size: 18px;
-  }
-  .name-container {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fffacd; /* Example color: LemonChiffon */
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
-  }
-  
-  .name-label {
-    color: #ff7f50; /* Example color: Coral */
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
+/* CSS for the button */
+.custom-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-button:hover {
+  background-color: #ff6659;
+}
+
+/* CSS for the name display container */
+.name-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}

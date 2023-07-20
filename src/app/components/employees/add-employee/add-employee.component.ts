@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar'; // Import MatSnackBar
 import { Employee } from 'src/app/modules/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
 
@@ -8,8 +9,6 @@ import { EmployeesService } from 'src/app/services/employees.service';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
-
-//obiect cu parametrii 
 export class AddEmployeeComponent {
 
   addEmployeeRequest: Employee = {
@@ -23,21 +22,23 @@ export class AddEmployeeComponent {
     Avatar: ''
   };
 
-  //ce trimiti pentru request in back end
-  constructor(private employeeService: EmployeesService, private router: Router ) {}
+  constructor(private employeeService: EmployeesService, private router: Router, private snackBar: MatSnackBar) { } // Inject MatSnackBar here
 
+  ngOnInit(): void {
+  }
 
-ngOnInit(): void {
-
-}
-
-addEmployee() {
-  this.employeeService.addEmployee(this.addEmployeeRequest)
-  .subscribe({
-    next: (employee) => {
-      this.router.navigate(['employees']);
-    }
-  });
-}
-
+  addEmployee() {
+    this.employeeService.addEmployee(this.addEmployeeRequest)
+      .subscribe({
+        next: (employee) => {
+          this.snackBar.open('Employee successfully added', 'Close', {
+            duration: 3000,
+          });
+          this.router.navigate(['employees']);
+        },
+        error: (err) => {
+          // Handle error if necessary and show snackbar with appropriate error message if desired
+        }
+      });
+  }
 }

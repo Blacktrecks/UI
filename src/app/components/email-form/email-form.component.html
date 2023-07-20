@@ -1,39 +1,45 @@
 <div [formGroup]="form" class="formbold-main-wrapper">
-    <h1 style="color: #333">Contact us</h1>
-    <div class="formbold-form-wrapper">
-      <form (ngSubmit)="send()" [formGroup]="form" action="javascript:void(0)" method="POST">
-        <div class="formbold-mb-5">
-          <label for="from_name" class="formbold-form-label">Full Name</label>
-          <input formControlName="from_name" type="text" name="from_name" id="from_name" placeholder="Full Name" class="formbold-form-input" [class.error]="form.get('from_name')?.invalid && form.get('from_name')?.touched" />
-          <div *ngIf="form.get('from_name')?.invalid && form.get('from_name')?.touched" class="error-message">Please enter your full name.</div>
-        </div>
-  
-        <div class="formbold-mb-5">
-          <label for="to_name" class="formbold-form-label">Recipient Name</label>
-          <input formControlName="to_name" type="text" name="to_name" id="to_name" placeholder="Recipient Name" class="formbold-form-input" [class.error]="form.get('to_name')?.invalid && form.get('to_name')?.touched" />
-          <div *ngIf="form.get('to_name')?.invalid && form.get('to_name')?.touched" class="error-message">Please enter the recipient's name.</div>
-        </div>
-  
-        <div class="formbold-mb-5">
-          <label for="from_email" class="formbold-form-label">Email</label>
-          <input formControlName="from_email" type="email" name="from_email" id="from_email" placeholder="Enter your email" class="formbold-form-input" [class.error]="form.get('from_email')?.invalid && form.get('from_email')?.touched" />
-          <div *ngIf="form.get('from_email')?.invalid && form.get('from_email')?.touched" class="error-message">Please enter a valid email address.</div>
-        </div>
-  
-        <div class="formbold-mb-5">
-          <label for="subject" class="formbold-form-label">Subject</label>
-          <input formControlName="subject" type="text" name="subject" id="subject" placeholder="Enter your Subject" class="formbold-form-input" [class.error]="form.get('subject')?.invalid && form.get('subject')?.touched" />
-          <div *ngIf="form.get('subject')?.invalid && form.get('subject')?.touched" class="error-message">Please enter a subject.</div>
-        </div>
-  
-        <div class="formbold-mb-5">
-          <label for="message" class="formbold-form-label">Message</label>
-          <textarea formControlName="message" rows="6" name="message" id="message" placeholder="Type your message" class="formbold-form-input" [class.error]="form.get('message')?.invalid && form.get('message')?.touched"></textarea>
-          <div *ngIf="form.get('message')?.invalid && form.get('message')?.touched" class="error-message">Please enter a message.</div>
-        </div>
-  
-        <button type="submit" class="formbold-btn">Submit</button>
-      </form>
-    </div>
+  <h1 style="color: #333">Contact us</h1>
+  <div class="formbold-form-wrapper">
+    <form (ngSubmit)="send()" [formGroup]="form" action="javascript:void(0)" method="POST">
+
+      <!-- Full Name -->
+      <div class="formbold-mb-5">
+        <label for="from_name" class="formbold-form-label">Full Name</label>
+        <input formControlName="from_name" type="text" name="from_name" id="from_name" placeholder="Full Name" class="formbold-form-input" [class.error]="form.get('from_name')?.invalid && form.get('from_name')?.touched" />
+        <div *ngIf="form.get('from_name')?.invalid && form.get('from_name')?.touched" class="error-message">Please enter your full name.</div>
+      </div>
+
+      <!-- Recipient Name -->
+      <div class="formbold-mb-5">
+        <label for="to_name" class="formbold-form-label">Recipient Name</label>
+        <input formControlName="to_name" type="text" name="to_name" id="to_name" placeholder="Recipient Name" class="formbold-form-input" [class.error]="form.get('to_name')?.invalid && form.get('to_name')?.touched" />
+        <div *ngIf="form.get('to_name')?.invalid && form.get('to_name')?.touched" class="error-message">Please enter the recipient's name.</div>
+      </div>
+
+      <!-- Email -->
+      <div class="formbold-mb-5">
+        <label for="from_email" class="formbold-form-label">Email</label>
+        <input formControlName="from_email" type="email" name="from_email" id="from_email" placeholder="Enter your email" class="formbold-form-input" [class.error]="form.get('from_email')?.invalid && form.get('from_email')?.touched" />
+        <div *ngIf="form.get('from_email')?.invalid && form.get('from_email')?.touched" class="error-message">Please enter a valid email address.</div>
+      </div>
+
+      <!-- Subject -->
+      <div class="formbold-mb-5">
+        <label for="subject" class="formbold-form-label">Subject</label>
+        <input formControlName="subject" type="text" name="subject" id="subject" placeholder="Enter your Subject" class="formbold-form-input" [class.error]="form.get('subject')?.invalid && form.get('subject')?.touched" />
+        <div *ngIf="form.get('subject')?.invalid && form.get('subject')?.touched" class="error-message">Please enter a subject.</div>
+      </div>
+
+      <!-- Message -->
+      <div class="formbold-mb-5">
+        <label for="message" class="formbold-form-label">Message</label>
+        <textarea formControlName="message" rows="6" name="message" id="message" placeholder="Type your message" class="formbold-form-input" [class.error]="form.get('message')?.invalid && form.get('message')?.touched"></textarea>
+        <div *ngIf="form.get('message')?.invalid && form.get('message')?.touched" class="error-message">Please enter a message.</div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="formbold-btn" [disabled]="form.invalid">Submit</button>
+    </form>
   </div>
-  
+</div>

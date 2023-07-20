@@ -11,6 +11,15 @@ export class AppComponent {
   registerForm: FormGroup = new FormGroup({}); // Initialize with an empty form group
   submitted = false;
   auth: AuthService;
+  offcanvasOpen = false;
+
+  toggleOffcanvas() {
+    this.offcanvasOpen = !this.offcanvasOpen;
+  }
+
+  closeOffcanvas() {
+    this.offcanvasOpen = false;
+  }
 
   constructor(private formBuilder: FormBuilder, auth: AuthService) {
     this.auth = auth;
