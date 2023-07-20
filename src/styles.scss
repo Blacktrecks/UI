@@ -22,7 +22,7 @@ $FullStackUI-warn: mat.define-palette(mat.$red-palette);
 // theming systems such as "color" or "typography".
 $FullStackUI-theme: mat.define-light-theme((
   color: (
-    primary: $FullStack-UI-primary,
+    primary: $FullStackUI-primary,
     accent: $FullStackUI-accent,
     warn: $FullStackUI-warn,
   )

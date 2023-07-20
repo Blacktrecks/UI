@@ -15,7 +15,9 @@ export class AddUserComponent {
     id: '',
     name: '',
     email: '',
-    password: ''
+    nickname: '',
+    picture: '',
+    auth0Id: ''
   };
 
   hidePassword: boolean = true; // Initialize password visibility

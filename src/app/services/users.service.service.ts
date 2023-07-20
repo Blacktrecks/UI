@@ -32,7 +32,7 @@ export class UsersServiceService {
       return this.http.get<User>(this.baseApiUrl + "/api/Users/" + "login",
       {params: {
         "email": userIdRequest.email,
-        "password": userIdRequest.password
+       
       }})
     }
 

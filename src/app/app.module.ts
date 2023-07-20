@@ -31,7 +31,11 @@ import { AuthTokenComponent } from './components/auth-token/auth-token.component
 import { EmailFormComponent } from './components/email-form/email-form.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSnackBarModule } from '@angular/material/snack-bar'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { Auth0Service } from './services/auth/auth0-service/auth0-service.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +52,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DarkModeButtonComponent,
     AuthTokenComponent,
     EmailFormComponent,
+    AdminPageComponent,
+    UserPageComponent,
+    MainPageComponent,
+    Auth0Service,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +83,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       }
     }),
   ],
-  providers: [],
+  providers: [
+    Auth0Service
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthService} from '@auth0/auth0-angular';
 import emailjs from '@emailjs/browser';
+import { Auth0Service } from './services/auth/auth0-service/auth0-service.component';
+import { UsersServiceService } from './services/users.service.service';
+import { User } from './modules/user.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,7 +24,7 @@ export class AppComponent {
     this.offcanvasOpen = false;
   }
 
-  constructor(private formBuilder: FormBuilder, auth: AuthService) {
+  constructor(private formBuilder: FormBuilder, auth: AuthService , private authService: Auth0Service, private userService : UsersServiceService) {
     this.auth = auth;
   }
 
@@ -41,10 +44,18 @@ export class AppComponent {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
+
     });
+
+    this.authService.getUserData().subscribe(user => {
+    this.addUsers(user)
+    })
   }
 
-
+   addUsers(user: any) {
+    this.userService.addUser(user)
+      .subscribe();
+  }
   //Day 8: Functie email send la forms
   form: FormGroup = this.formBuilder.group({
     from_name: '',

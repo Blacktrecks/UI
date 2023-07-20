@@ -14,7 +14,9 @@ export class EditUserComponent {
     id: '',
     name: '',
     email: '',
-    password: ''
+    nickname: '',
+    picture: '',
+    auth0Id: ''
   };
 
   constructor(
