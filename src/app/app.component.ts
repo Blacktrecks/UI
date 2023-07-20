@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AuthService} from '@auth0/auth0-angular';
+import { AuthService, User } from '@auth0/auth0-angular';
 import emailjs from '@emailjs/browser';
 import { Auth0Service } from './services/auth/auth0-service/auth0-service.component';
 import { UsersServiceService } from './services/users.service.service';
-import { User } from './modules/user.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
   registerForm: FormGroup = new FormGroup({}); // Initialize with an empty form group
   submitted = false;
   auth: AuthService;
@@ -24,7 +25,7 @@ export class AppComponent {
     this.offcanvasOpen = false;
   }
 
-  constructor(private formBuilder: FormBuilder, auth: AuthService , private authService: Auth0Service, private userService : UsersServiceService) {
+  constructor(private formBuilder: FormBuilder, auth: AuthService, private authService: Auth0Service, private userService: UsersServiceService) {
     this.auth = auth;
   }
 
@@ -48,13 +49,31 @@ export class AppComponent {
     });
 
     this.authService.getUserData().subscribe(user => {
-    this.addUsers(user)
+      console.log(user)
+      const userAdd: User = {
+        id: "user.sub?",
+        name: "user?.name?",
+        email: 'user?.email?',
+        nickname: "user?.nickname?",
+        picture: "user?.picture?",
+        auth0Id: "user?.sub?",
+    
+      }
+
+      this.addUsers(userAdd)
     })
   }
 
-   addUsers(user: any) {
+  addUsers(user: any) {
     this.userService.addUser(user)
-      .subscribe();
+      .subscribe({
+        next: (response) => {
+          console.log(response)
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      });
   }
   //Day 8: Functie email send la forms
   form: FormGroup = this.formBuilder.group({
@@ -65,13 +84,13 @@ export class AppComponent {
     message: ''
   });
   send() {
-    emailjs.send('service_pgfw28a','template_x69c03l',{
+    emailjs.send('service_pgfw28a', 'template_x69c03l', {
       from_name: 'Blacktrecks',
       to_name: 'test',
       from_email: 'pitarroman@gmail.com',
       subject: 'Test subject',
       message: 'this is a message',
 
-    } );
+    });
   }
 }
