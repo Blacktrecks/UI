@@ -1,31 +1,61 @@
 
-<div class="container my-5">
-    <h1 class="mb-3">
-        Users 
-    </h1>
-    <table class="table table-dark table-striped bg-dark" *ngIf="users && users.length > 0">
-        <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Nickname</th>
-              <th>Picture</th>
-              <th> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let u of users">
-                <td>{{u.id}}</td>
-                <td>{{u.name}}</td>
-                <td>{{u.email}}</td>
-                <td>{{u.nickname}}</td>
-                <td>{{u.picture}}</td>
-              
-                <td><a [routerLink]="['/users','edit', u.id]" >View</a></td>
-            </tr>
-        </tbody>
 
-    </table>
-    <p *ngIf="!users ||  users.length <= 0">No Employees Found</p>
-</div>
+<!-- Container Pagina Angajati -->
+<div class="container p-4">
+
+    <!-- H1 Titlu Pagina -->
+    <h1>
+      Utilizatori
+    </h1>
+  
+    <!-- Tabel Agajati -->
+    <!-- <table class="table table-light table-striped" *ngIf="users && users.length > 0 "> -->
+    <!-- Head -->
+    <!-- <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nume</th>
+          <th scope="col">Email</th>
+          <th> </th>
+        </tr>
+      </thead> -->
+  
+    <!-- Body -->
+    <!-- <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.userId}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td><a [routerLink]="['/users','edit', user.userId]">View</a></td>
+        </tr>
+      </tbody>
+    </table> -->
+  
+    <!-- Container -->
+    <div class="container">
+  
+      <!-- Linie pentru fiecare user -->
+      <div class="row">
+  
+        <!-- Coloana -->
+        <div class="col-sm p-3" *ngFor="let user of users">
+          
+          <!-- Card de user -->
+          <div class="card" style="width: 15rem;">
+            <img class="card-img-top" src={{user.picture}} alt="Card image cap">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{user.nickname}}</h5>
+              <hr>
+              <a [routerLink]="['/users','edit', user.id]" class="btn btn-primary">Edit</a>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <!-- If Daca Nu Exista Angajati -->
+    <p *ngIf="!users || users.length <= 0">
+      Niciun utilizator gasit
+    </p>
+  </div>

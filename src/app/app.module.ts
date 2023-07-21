@@ -26,16 +26,16 @@ import { EditUserComponent } from './components/user/edit-user/edit-user.compone
 import { SearchUsersComponent } from './components/user/search-users/search-users.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { UploadAvatarComponent } from './components/upload-avatar/upload-avatar.component';
-import { DarkModeButtonComponent } from './components/dark-mode-button/dark-mode-button.component';
 import { AuthTokenComponent } from './components/auth-token/auth-token.component';
 import { EmailFormComponent } from './components/email-form/email-form.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AdminPageComponent } from './pages/admin-page/admin-page.component';
-import { UserPageComponent } from './pages/user-page/user-page.component';
-import { MainPageComponent } from './pages/main-page/main-page.component';
-import { Auth0Service } from './services/auth/auth0-service/auth0-service.component'; 
+
+import { Auth0Service } from './services/auth/auth0-service/auth0-service.component';
+import { AdminPanelComponent } from './components/admin-template/admin-panel/admin-panel.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,13 +49,12 @@ import { Auth0Service } from './services/auth/auth0-service/auth0-service.compon
     SearchUsersComponent,
     LoginComponent,
     UploadAvatarComponent,
-    DarkModeButtonComponent,
     AuthTokenComponent,
     EmailFormComponent,
-    AdminPageComponent,
-    UserPageComponent,
-    MainPageComponent,
     Auth0Service,
+    AdminPanelComponent,
+    NavBarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -75,6 +74,7 @@ import { Auth0Service } from './services/auth/auth0-service/auth0-service.compon
     MatListModule,
     MatFormFieldModule,
     MatSnackBarModule,
+  
     AuthModule.forRoot({
       domain: 'dev-ohj5mjnh8a5o1m8l.us.auth0.com',
       clientId: 'EbNu4YDqqUpY3jKuHdJeMORBQul65rgW',

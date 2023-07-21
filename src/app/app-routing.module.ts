@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { AuthTokenComponent } from './components/auth-token/auth-token.component';
 import { EmailFormComponent } from './components/email-form/email-form.component';
+import { AdminPanelComponent } from './components/admin-template/admin-panel/admin-panel.component';
+
 
 
 const routes: Routes = [
@@ -75,6 +77,12 @@ const routes: Routes = [
     path: 'upload',
     component: UploadAvatarComponent
     
+  },
+
+  //day 10 admin routing
+  {
+    path: 'admin',
+    component: AdminPanelComponent
   },
 
   

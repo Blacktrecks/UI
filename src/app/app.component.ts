@@ -4,6 +4,7 @@ import { AuthService, User } from '@auth0/auth0-angular';
 import emailjs from '@emailjs/browser';
 import { Auth0Service } from './services/auth/auth0-service/auth0-service.component';
 import { UsersServiceService } from './services/users.service.service';
+import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +12,7 @@ import { UsersServiceService } from './services/users.service.service';
 })
 export class AppComponent {
 
+  isOnAdminRoute = false;
 
   registerForm: FormGroup = new FormGroup({}); // Initialize with an empty form group
   submitted = false;
@@ -35,8 +37,15 @@ export class AppComponent {
     this.offcanvasOpen = false;
   }
 
-  constructor(private formBuilder: FormBuilder, auth: AuthService, private authService: Auth0Service, private userService: UsersServiceService) {
+  constructor(private formBuilder: FormBuilder, auth: AuthService, private authService: Auth0Service, private userService: UsersServiceService, private router: Router) {
     this.auth = auth;
+    
+
+    router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd) {
+        this.isOnAdminRoute = event.url == '/admin';
+      }
+    });
   }
 
   get f() {

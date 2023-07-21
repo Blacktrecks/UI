@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ThemeService } from './theme.service';
+import { NavbarToggleService } from './navbar-toggle.service';
 
-describe('ThemeService', () => {
-  let service: ThemeService;
+describe('NavbarToggleService', () => {
+  let service: NavbarToggleService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ThemeService);
+    service = TestBed.inject(NavbarToggleService);
   });
 
   it('should be created', () => {

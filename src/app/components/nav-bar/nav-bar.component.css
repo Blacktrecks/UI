@@ -1,0 +1,56 @@
+
+/* Cool CSS style for the navbar */
+.dark-mode {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .navbar {
+    background-color: darkcyan ; /* Use your preferred color */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-toggler {
+    border-color: transparent;
+  }
+  
+  .navbar-collapse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  .nav-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px; /* Increase padding to give buttons more space */
+  }
+  
+  .nav-item a:hover {
+    color: #f0a500; /* Hover color for links */
+  }
+  
+  .nav-item button {
+    margin-left: 8px;
+  }
+  
+  /* Example dark mode styles */
+  .content-container {
+    margin-top: 80px; /* Adjust the value as needed to create spacing below the fixed navbar */
+    padding-bottom: 20px; /* Add padding at the bottom to create space for the content */
+  }
+  
+  /* Your other custom styles can be placed here */
+  
