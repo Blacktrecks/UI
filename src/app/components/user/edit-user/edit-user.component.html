@@ -21,7 +21,18 @@
                     name="email" [(ngModel)]="userDetail.email">
                 </div>
 
-             
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="" class="form-label">Nickname</label>
+                    <input type="text" class="form-control" id="nickname" 
+                    name="nickname"[(ngModel)]="userDetail.nickname" >
+                </div>
+
+                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                    <label for="" class="form-label">Picture</label>
+                    <input type="text" class="form-control" id="picture" 
+                    name="picture"[(ngModel)]="userDetail.picture" >
+                </div>
+
                 <div class="clearfix">
                     <button type="submit" class="btn btn-outline-primary float-start">Save</button>
                     <button type="button" class="btn btn-outline-danger float-end"

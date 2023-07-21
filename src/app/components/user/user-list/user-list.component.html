@@ -9,7 +9,8 @@
               <th>Id</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Password</th>
+              <th>Nickname</th>
+              <th>Picture</th>
               <th> </th>
             </tr>
         </thead>
@@ -18,6 +19,8 @@
                 <td>{{u.id}}</td>
                 <td>{{u.name}}</td>
                 <td>{{u.email}}</td>
+                <td>{{u.nickname}}</td>
+                <td>{{u.picture}}</td>
               
                 <td><a [routerLink]="['/users','edit', u.id]" >View</a></td>
             </tr>

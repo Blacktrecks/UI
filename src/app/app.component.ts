@@ -16,6 +16,16 @@ export class AppComponent {
   submitted = false;
   auth: AuthService;
   offcanvasOpen = false;
+  user: any;
+  userAdd: User = {
+    id: '',
+    name: '',
+    email: '',
+    nickname: '',
+    picture: '',
+    auth0Id: '',
+
+  }
 
   toggleOffcanvas() {
     this.offcanvasOpen = !this.offcanvasOpen;
@@ -48,19 +58,17 @@ export class AppComponent {
 
     });
 
-    this.authService.getUserData().subscribe(user => {
-      console.log(user)
-      const userAdd: User = {
-        id: "user.sub?",
-        name: "user?.name?",
-        email: 'user?.email?',
-        nickname: "user?.nickname?",
-        picture: "user?.picture?",
-        auth0Id: "user?.sub?",
-    
-      }
+    this.authService.getUserData().subscribe((user : any) => {
+      this.user = user
 
-      this.addUsers(userAdd)
+      this.userAdd['id'] = this.user.sub
+      this.userAdd['name'] = this.user.name
+      this.userAdd['nickname'] = this.user.nickname
+      this.userAdd['email'] = this.user.email
+      this.userAdd['picture'] = this.user.picture
+
+
+      this.addUsers(this.userAdd)
     })
   }
 
