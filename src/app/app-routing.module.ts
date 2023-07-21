@@ -15,6 +15,8 @@ import { AuthGuard } from '@auth0/auth0-angular';
 import { AuthTokenComponent } from './components/auth-token/auth-token.component';
 import { EmailFormComponent } from './components/email-form/email-form.component';
 import { AdminPanelComponent } from './components/admin-template/admin-panel/admin-panel.component';
+import { UserPanelComponent } from './components/user-template/user-panel/user-panel.component';
+import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
 
 
 
@@ -83,6 +85,16 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminPanelComponent
+  },
+  //day 10 user user panel
+  {
+    path: 'userpanel',
+    component: UserPanelComponent
+  },
+  //day 10 main panel
+  {
+    path: 'main',
+    component: MainPanelComponent
   },
 
   

@@ -36,6 +36,8 @@ import { Auth0Service } from './services/auth/auth0-service/auth0-service.compon
 import { AdminPanelComponent } from './components/admin-template/admin-panel/admin-panel.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NavbarToggleService } from './services/navbar-toggle.service';
+import { UserPanelComponent } from './components/user-template/user-panel/user-panel.component';
+import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { NavbarToggleService } from './services/navbar-toggle.service';
     Auth0Service,
     AdminPanelComponent,
     NavBarComponent,
+    UserPanelComponent,
+    MainPanelComponent,
 
   ],
   imports: [

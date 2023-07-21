@@ -1,5 +1,5 @@
-import { Component,OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { NavbarToggleService } from 'src/app/services/navbar-toggle.service';
 
@@ -8,24 +8,35 @@ import { NavbarToggleService } from 'src/app/services/navbar-toggle.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
   showNavbar!: boolean;
 
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    private navbarToggleService: NavbarToggleService
+  ) {}
+
   ngOnInit(): void {
-    this.showNavbar = this.navbarToogleService.getShowNavbar();
+    this.showNavbar = this.navbarToggleService.getShowNavbar();
 
     // Subscribe to router events to detect navigation changes
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // Hide the navbar if the current route is '/admin'
-        this.showNavbar = !this.router.url.includes('/admin');
-        this.navbarToogleService.setShowNavbar(this.showNavbar);
+        // Hide the navbar for specific routes
+        this.showNavbar = !this.shouldHideNavbar(this.router.url);
+        this.navbarToggleService.setShowNavbar(this.showNavbar);
       }
     });
   }
 
+  shouldHideNavbar(url: string): boolean {
+    // Add the routes where you want to hide the navbar
+    return url.includes('/admin') || url.includes('/userpanel');
+  }
+}
 
-constructor(public auth: AuthService, private navbarToogleService: NavbarToggleService , private router: Router) {}
+
 
 
 // navigateToAdminSection() {
@@ -37,4 +48,4 @@ constructor(public auth: AuthService, private navbarToogleService: NavbarToggleS
 //   // ... navigate to other sections logic
 //   this.navbarToogleService.setShowNavbar(true); // Show the navbar when navigating to other sections
 // }
-}
+
