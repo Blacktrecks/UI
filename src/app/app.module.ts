@@ -35,7 +35,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { Auth0Service } from './services/auth/auth0-service/auth0-service.component';
 import { AdminPanelComponent } from './components/admin-template/admin-panel/admin-panel.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
- 
+import { NavbarToggleService } from './services/navbar-toggle.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +85,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     }),
   ],
   providers: [
-    Auth0Service
+    Auth0Service,
+    NavbarToggleService,
   ],
   bootstrap: [AppComponent],
 })
