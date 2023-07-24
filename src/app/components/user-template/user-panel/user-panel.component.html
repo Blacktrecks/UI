@@ -1,17 +1,41 @@
-
 <div class="admin-panel">
-    <div class="sidebar">
+  <div class="sidebar">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Users</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Settings</a></li>
+      <!-- Add a new tab for displaying user tasks -->
+      <li><a (click)="showUserTasks()">User Tasks</a></li>
+      <!-- Add a new tab for displaying user notes -->
+      <li><a (click)="showUserNotes()">User Notes</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <!-- Your content goes here -->
+    <!-- Add a section to display user tasks -->
+    <div *ngIf="showTasks">
+      <h2>User Tasks</h2>
       <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Settings</a></li>
+        <li *ngFor="let task of userTasks">
+          <h3>{{ task.properties.title.title[0].plain_text }}</h3>
+          <p>{{ task.properties.description.rich_text[0].plain_text }}</p>
+          <p>Due Date: {{ task.properties.due_date.date.start }}</p>
+          <p>Priority: {{ task.properties.priority.select.name }}</p>
+          <hr>
+        </li>
       </ul>
     </div>
-    <div class="content">
-      <!-- Your content goes here -->
+    <!-- Add a section to display user notes -->
+    <div *ngIf="showNotes">
+      <h2>User Notes</h2>
+      <ul>
+        <li *ngFor="let note of userNotes">
+          <h3>{{ note.properties.title.title[0].plain_text }}</h3>
+          <p>{{ note.properties.description.rich_text[0].plain_text }}</p>
+          <hr>
+        </li>
+      </ul>
     </div>
   </div>
-  
-
-  
+</div>
