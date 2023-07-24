@@ -11,4 +11,11 @@ export class AdminPanelComponent {
   constructor(private navbarToggleService: NavbarToggleService) {
     this.navbarToggleService.setShowNavbar(false);
   }
+
+  //Sidebar toggle show hide function
+status = false;
+addToggle()
+{
+  this.status = !this.status;       
+}
 }

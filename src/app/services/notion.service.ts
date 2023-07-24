@@ -6,7 +6,7 @@ import { Client } from '@notionhq/client';
 })
 export class NotionService {
   private notion: Client;
-
+  private apiUrl = 'http://localhost:8080/https://api.notion.com/v1/databases';
   constructor() {
     // Replace 'YOUR_INTEGRATION_SECRET' with your actual Notion Integration Secret (API key)
     this.notion = new Client({ auth: 'secret_a6uZ1lq5psi794coIxn5VhONUDgZty4UmbM681xjXCP' });

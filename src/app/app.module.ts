@@ -39,6 +39,7 @@ import { NavbarToggleService } from './services/navbar-toggle.service';
 import { UserPanelComponent } from './components/user-template/user-panel/user-panel.component';
 import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,8 @@ import { MainPanelComponent } from './components/main-template/main-panel/main-p
     NavBarComponent,
     UserPanelComponent,
     MainPanelComponent,
+    
+  
 
   ],
   imports: [
@@ -79,6 +82,7 @@ import { MainPanelComponent } from './components/main-template/main-panel/main-p
     MatListModule,
     MatFormFieldModule,
     MatSnackBarModule,
+   
   
     AuthModule.forRoot({
       domain: 'dev-ohj5mjnh8a5o1m8l.us.auth0.com',

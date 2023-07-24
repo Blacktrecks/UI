@@ -84,7 +84,8 @@ const routes: Routes = [
   //day 10 admin routing
   {
     path: 'admin',
-    component: AdminPanelComponent
+    component: AdminPanelComponent,
+   
   },
   //day 10 user user panel
   {
