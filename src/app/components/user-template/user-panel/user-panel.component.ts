@@ -1,43 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { NavbarToggleService } from 'src/app/services/navbar-toggle.service';
-import { Client } from '@notionhq/client';
-import { NotionService } from 'src/app/services/notion.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user-panel',
   templateUrl: './user-panel.component.html',
-  styleUrls: ['./user-panel.component.css']
+  styleUrls: ['./user-panel.component.css'],
 })
-export class UserPanelComponent implements OnInit {
-  userTasks: any[] = [];
-  userNotes: any[] = [];
+export class UserPanelComponent {
+  // Initialize the variables to control the visibility of tasks and notes
   showTasks: boolean = false;
   showNotes: boolean = false;
 
-  constructor(private navbarToggleService: NavbarToggleService, private notionService: NotionService) {
-    this.navbarToggleService.setShowNavbar(false);
-  }
-  ngOnInit(): void {
-    // Fetch user tasks from Notion database
-    this.notionService.getUserTasks().then(tasks => {
-      this.userTasks = tasks;
-    });
+  // Sample data for user tasks and notes (replace with your actual data)
+  userTasks = [
+    {
+      properties: {
+        title: { title: [{ plain_text: 'Task 1' }] },
+        description: { rich_text: [{ plain_text: 'Description for Task 1' }] },
+        due_date: { date: { start: '2023-07-25T00:00:00.000Z' } },
+        priority: { select: { name: 'High' } },
+      },
+    },
+    // Add more tasks here...
+  ];
 
-    // Fetch user notes from Notion database
-    this.notionService.getUserNotes().then(notes => {
-      this.userNotes = notes;
-    });
-  }
+  userNotes = [
+    {
+      properties: {
+        title: { title: [{ plain_text: 'Note 1' }] },
+        description: { rich_text: [{ plain_text: 'Description for Note 1' }] },
+      },
+    },
+    // Add more notes here...
+  ];
 
-  // Show user tasks when the 'User Tasks' tab is clicked
+
+  // Method to show user tasks and hide user notes
   showUserTasks() {
     this.showTasks = true;
     this.showNotes = false;
   }
 
-  // Show user notes when the 'User Notes' tab is clicked
+  // Method to show user notes and hide user tasks
   showUserNotes() {
     this.showTasks = false;
     this.showNotes = true;
+  }
+  //Sidebar toggle show hide function
+  status = false;
+  addToggle()
+  {
+    this.status = !this.status;       
   }
 }

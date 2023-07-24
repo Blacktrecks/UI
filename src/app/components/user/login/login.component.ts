@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.auth.loginWithRedirect().subscribe(() => {
-      this.router.navigate(['/main']); // Replace '/main' with your desired main page route
+      this.router.navigate(['/userpanel']); // Replace '/main' with your desired main page route
     });
   }
   logout(): void{

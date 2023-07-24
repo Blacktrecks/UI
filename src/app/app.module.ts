@@ -38,7 +38,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NavbarToggleService } from './services/navbar-toggle.service';
 import { UserPanelComponent } from './components/user-template/user-panel/user-panel.component';
 import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
-
+import { AdminDashboardsGuardComponent } from './components/admin-template/admin-dashboards.guard/admin-dashboards.guard.component';
 
 @NgModule({
   declarations: [
@@ -60,9 +60,8 @@ import { MainPanelComponent } from './components/main-template/main-panel/main-p
     NavBarComponent,
     UserPanelComponent,
     MainPanelComponent,
-    
-  
-
+ 
+   
   ],
   imports: [
     BrowserModule,
@@ -95,6 +94,7 @@ import { MainPanelComponent } from './components/main-template/main-panel/main-p
   providers: [
     Auth0Service,
     NavbarToggleService,
+    AdminDashboardsGuardComponent,
   ],
   bootstrap: [AppComponent],
 })

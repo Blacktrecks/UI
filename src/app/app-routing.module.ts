@@ -17,11 +17,17 @@ import { EmailFormComponent } from './components/email-form/email-form.component
 import { AdminPanelComponent } from './components/admin-template/admin-panel/admin-panel.component';
 import { UserPanelComponent } from './components/user-template/user-panel/user-panel.component';
 import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
+import { AdminDashboardsGuardComponent } from './components/admin-template/admin-dashboards.guard/admin-dashboards.guard.component';
 
 
 
 const routes: Routes = [
- 
+  
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+
   {
     path: 'employees',
     component: EmployeesListComponent
@@ -50,10 +56,7 @@ const routes: Routes = [
     path: 'users/search',
     component: SearchUsersComponent
   },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+  
   //Ziua 8 asta te duce in log in pentru a putea accesa pagina
   //{
   //  path: '', component: AppComponent, canActivate: [AuthGuard]
@@ -85,7 +88,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminPanelComponent,
-   
+    
   },
   //day 10 user user panel
   {
