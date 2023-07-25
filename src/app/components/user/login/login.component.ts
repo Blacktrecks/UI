@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
     // Set the intended redirection route based on the user's role
     const isAdmin = await this.checkIfUserIsAdmin();
     const intendedRoute = isAdmin ? '/admin' : '/userpanel';
-    this.auth.loginWithRedirect()
-    // ({
-    //   appState: { targetRoute: intendedRoute },
-    // });
+    this.auth.loginWithRedirect
+    ({
+     appState: { targetRoute: intendedRoute },
+    });
   }
 
   async checkIfUserIsAdmin(): Promise<boolean> {
