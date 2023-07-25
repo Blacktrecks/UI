@@ -9,6 +9,7 @@ import { UsersServiceService } from 'src/app/services/users.service.service';
 })
 export class UserListComponent implements OnInit {
   users: User[] = [];
+  cardView: boolean = true;
   constructor(private usersServiceService: UsersServiceService) {}
 
   ngOnInit(): void {
@@ -21,6 +22,10 @@ export class UserListComponent implements OnInit {
         console.log(response);
       }
     })
+  }
+
+  toggleView(): void {
+    this.cardView = !this.cardView;
   }
 
 }

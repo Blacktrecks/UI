@@ -1,62 +1,65 @@
 /* Main wrapper */
 .formbold-main-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-  }
-  
-  /* Form wrapper */
-  .formbold-form-wrapper {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
-  /* Form label */
-  .formbold-form-label {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  /* Form input */
-  .formbold-form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-  }
-  
-  /* Form textarea */
-  .formbold-form-input textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-  }
-  
-  /* Submit button */
-  .formbold-btn {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Submit button hover */
-  .formbold-btn:hover {
-    background-color: #555;
-  }
-  
-  .error {
-    border-color: red;
-  }
-  
-  .error-message {
-    color: red;
-    margin-top: 5px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form wrapper */
+.formbold-form-wrapper {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form label */
+.formbold-form-label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Form input */
+.formbold-form-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+/* Form textarea */
+.formbold-form-input textarea {
+  resize: vertical;
+}
+
+/* Submit button */
+.formbold-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+/* Submit button hover */
+.formbold-btn:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}

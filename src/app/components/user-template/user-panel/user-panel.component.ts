@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
+
 
 @Component({
   selector: 'app-user-panel',
@@ -9,7 +12,7 @@ export class UserPanelComponent {
   // Initialize the variables to control the visibility of tasks and notes
   showTasks: boolean = false;
   showNotes: boolean = false;
-
+  constructor(public auth: AuthService, private router: Router) {}
   // Sample data for user tasks and notes (replace with your actual data)
   userTasks = [
     {
@@ -51,4 +54,10 @@ export class UserPanelComponent {
   {
     this.status = !this.status;       
   }
+
+  
+  logout(): void {
+    this.auth.logout();
+  }
 }
+

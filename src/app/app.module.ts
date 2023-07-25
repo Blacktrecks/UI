@@ -86,6 +86,7 @@ import { AdminDashboardsGuardComponent } from './components/admin-template/admin
     AuthModule.forRoot({
       domain: 'dev-ohj5mjnh8a5o1m8l.us.auth0.com',
       clientId: 'EbNu4YDqqUpY3jKuHdJeMORBQul65rgW',
+    
       authorizationParams: {
         redirect_uri:  'http://localhost:4200'
       }
