@@ -39,6 +39,7 @@ import { NavbarToggleService } from './services/navbar-toggle.service';
 import { UserPanelComponent } from './components/user-template/user-panel/user-panel.component';
 import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
 import { AdminDashboardsGuardComponent } from './components/admin-template/admin-dashboards.guard/admin-dashboards.guard.component';
+import { SendSmsComponent } from './components/sms/send-sms/send-sms.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { AdminDashboardsGuardComponent } from './components/admin-template/admin
     NavBarComponent,
     UserPanelComponent,
     MainPanelComponent,
+    SendSmsComponent,
  
    
   ],

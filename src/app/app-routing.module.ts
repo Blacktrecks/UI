@@ -18,6 +18,7 @@ import { AdminPanelComponent } from './components/admin-template/admin-panel/adm
 import { UserPanelComponent } from './components/user-template/user-panel/user-panel.component';
 import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
 import { AdminDashboardsGuardComponent } from './components/admin-template/admin-dashboards.guard/admin-dashboards.guard.component';
+import { SendSmsComponent } from './components/sms/send-sms/send-sms.component';
 
 
 
@@ -102,6 +103,11 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainPanelComponent
+  },
+  //Day 12 : Start send sms
+  {
+    path: 'send-sms',
+    component: SendSmsComponent
   },
 
   
