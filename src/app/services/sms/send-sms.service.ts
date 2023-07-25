@@ -5,9 +5,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SendSmsService {
-  private twilioAccountSid = 'YOUR_TWILIO_ACCOUNT_SID';
-  private twilioAuthToken = 'YOUR_TWILIO_AUTH_TOKEN';
-  private twilioPhoneNumber = 'YOUR_TWILIO_PHONE_NUMBER';
+  private twilioAccountSid = 'ACa86fc027c6871e9b57c7a4a7daed99d7';
+  private twilioAuthToken = '698e069c4dfab536882af9cc7aaa2adc';
+  private twilioPhoneNumber = '+40 724 634 142';
 
   constructor(private http: HttpClient) {}
 
