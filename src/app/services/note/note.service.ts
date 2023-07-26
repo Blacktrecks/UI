@@ -15,24 +15,24 @@ export class NotesService {
   constructor(private http: HttpClient) { }
 
   getAllNotes(): Observable<Note[]> {
-    return this.http.get<Note[]>(`${this.baseApiUrl}/api/notes`);
+    return this.http.get<Note[]>(this.baseApiUrl +'/api/notes');
   }
 
   addNote(addNoteRequest: Note): Observable<Note> {
     addNoteRequest.id = '00000000-0000-0000-0000-000000000000';
-    return this.http.post<Note>(`${this.baseApiUrl}/api/notes`, addNoteRequest);
+    return this.http.post<Note>(this.baseApiUrl + '/api/notes', addNoteRequest);
   }
 
   getNote(id: string): Observable<Note> {
-    return this.http.get<Note>(`${this.baseApiUrl}/api/notes/${id}`);
+    return this.http.get<Note>(this.baseApiUrl +'/api/Notes/' +id);
   }
 
   updateNote(id: string, updateNoteRequest: Note): Observable<Note> {
-    return this.http.put<Note>(`${this.baseApiUrl}/api/notes/${id}`, updateNoteRequest);
+    return this.http.put<Note>(this.baseApiUrl + '/api/notes/'+ id, updateNoteRequest);
   }
 
   deleteNote(id: string): Observable<Note> {
-    return this.http.delete<Note>(`${this.baseApiUrl}/api/notes/${id}`);
+    return this.http.delete<Note>(this.baseApiUrl + '/api/notes/' + id);
   }
 
   searchNotes(keyword: string): Observable<Note[]> {

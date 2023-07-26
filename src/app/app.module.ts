@@ -41,6 +41,8 @@ import { MainPanelComponent } from './components/main-template/main-panel/main-p
 import { AdminDashboardsGuardComponent } from './components/admin-template/admin-dashboards.guard/admin-dashboards.guard.component';
 import { SendSmsComponent } from './components/sms/send-sms/send-sms.component';
 import { NoteFormComponent } from './components/note/note-form/note-form.component';
+import { AssignmentComponent } from './components/assignment/assignment/assignment.component';
+
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { NoteFormComponent } from './components/note/note-form/note-form.compone
     MainPanelComponent,
     SendSmsComponent,
     NoteFormComponent,
+    AssignmentComponent,
+   
  
    
   ],

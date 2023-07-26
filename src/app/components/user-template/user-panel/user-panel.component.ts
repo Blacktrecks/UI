@@ -13,6 +13,7 @@ import {  NotesService } from 'src/app/services/note/note.service';
 export class UserPanelComponent {
   userNotes: any[] = [];
   showNotes: boolean = false;
+  currentNoteIndex: number = 0; //index of the note
   constructor(public auth: AuthService, private router: Router, private notesService: NotesService) {}
   
 
@@ -24,6 +25,11 @@ export class UserPanelComponent {
   showUserNotes(){
     this.showNotes = true;
     
+  }
+
+  //show next note
+  showNextNote(){
+    this.currentNoteIndex = (this.currentNoteIndex + 1) % this.userNotes.length;
   }
 
   

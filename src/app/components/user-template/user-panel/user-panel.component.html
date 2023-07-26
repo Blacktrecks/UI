@@ -44,6 +44,8 @@
       </a>
     </li>
     <li>
+
+    <li>
       <a href="main" class="logout">
         <button class="btn btn-warning" (click)="auth.logout()">
           Log Out
@@ -136,7 +138,10 @@
           </thead>
           <tbody>
             <tr>
-            
+               <tr *ngFor="let note of userNotes">
+        <td>{{ note.title }}</td>
+        <td>{{ note.date }}</td>
+        <td>Status</td> <!-- Replace 'Status' with the appropriate property from your 'Note' model -->
             </tr>
             <tr>
            
@@ -151,10 +156,11 @@
           <i class='bx bx-filter' ></i>
         </div>
         <ul class="todo-list">
-          <li class="completed">
-            <p>Todo List</p>
-            <i class='bx bx-dots-vertical-rounded' ></i>
+          <li class="not-completed">
+            <p>{{ userNotes[currentNoteIndex].content }}</p>
+            <i class='bx bx-dots-vertical-rounded'></i>
           </li>
+          <button (click)="showNextNote()">Next Note</button>
           <li class="completed">
             <p>Todo List</p>
             <i class='bx bx-dots-vertical-rounded' ></i>
