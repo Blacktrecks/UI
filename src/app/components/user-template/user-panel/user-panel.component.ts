@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { Note } from 'src/app/modules/note.model';
+import {  NotesService } from 'src/app/services/note/note.service';
 
 
 @Component({
@@ -9,45 +11,55 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./user-panel.component.css'],
 })
 export class UserPanelComponent {
-  // Initialize the variables to control the visibility of tasks and notes
-  showTasks: boolean = false;
+  userNotes: any[] = [];
   showNotes: boolean = false;
-  constructor(public auth: AuthService, private router: Router) {}
-  // Sample data for user tasks and notes (replace with your actual data)
-  userTasks = [
-    {
-      properties: {
-        title: { title: [{ plain_text: 'Task 1' }] },
-        description: { rich_text: [{ plain_text: 'Description for Task 1' }] },
-        due_date: { date: { start: '2023-07-25T00:00:00.000Z' } },
-        priority: { select: { name: 'High' } },
-      },
-    },
-    // Add more tasks here...
-  ];
+  constructor(public auth: AuthService, private router: Router, private notesService: NotesService) {}
+  
 
-  userNotes = [
-    {
-      properties: {
-        title: { title: [{ plain_text: 'Note 1' }] },
-        description: { rich_text: [{ plain_text: 'Description for Note 1' }] },
-      },
-    },
-    // Add more notes here...
-  ];
-
-
-  // Method to show user tasks and hide user notes
-  showUserTasks() {
-    this.showTasks = true;
-    this.showNotes = false;
+  ngOnInit() {
+    this.getUserNotes(); // Call the method to fetch user notes when the component is initialized
   }
-
-  // Method to show user notes and hide user tasks
-  showUserNotes() {
-    this.showTasks = false;
+  
+  //show user notes
+  showUserNotes(){
     this.showNotes = true;
+    
   }
+
+  
+  getUserNotes() {
+    this.notesService.getAllNotes().subscribe(
+      (notes) => {
+        this.userNotes = notes;
+      },
+      (error) => {
+        console.error('Error fetching user notes:', error);
+      }
+    );
+  }
+
+  // Method to create a new note
+  createNewNote() {
+    const newNote: Note = {
+      id: '',
+      title: 'New Note',
+      content: 'Enter your note content here.',
+      date:  'enter date.',
+   
+    };
+
+    this.notesService.addNote(newNote).subscribe(
+      (addedNote) => {
+        // Note added successfully, refresh the notes list
+        this.getUserNotes();
+      },
+      (error) => {
+        console.error('Error adding note:', error);
+      }
+    );
+  }
+
+
   //Sidebar toggle show hide function
   status = false;
   addToggle()

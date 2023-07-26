@@ -19,6 +19,7 @@ import { UserPanelComponent } from './components/user-template/user-panel/user-p
 import { MainPanelComponent } from './components/main-template/main-panel/main-panel.component';
 import { AdminDashboardsGuardComponent } from './components/admin-template/admin-dashboards.guard/admin-dashboards.guard.component';
 import { SendSmsComponent } from './components/sms/send-sms/send-sms.component';
+import { NoteFormComponent } from './components/note/note-form/note-form.component';
 
 
 
@@ -109,6 +110,9 @@ const routes: Routes = [
     path: 'send-sms',
     component: SendSmsComponent
   },
+
+  //day 14 note-form routing
+  { path: 'note/add', component: NoteFormComponent },
 
   
 ];
