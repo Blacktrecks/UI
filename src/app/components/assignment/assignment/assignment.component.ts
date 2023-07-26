@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Assignment } from 'src/app/modules/assignment.model';
 import { AssignmentService } from 'src/app/services/assignment/assignment.service';
-
+import { Router } from '@angular/router'; // Import the Router
 @Component({
   selector: 'app-note-form',
   templateUrl: './assignment.component.html',
@@ -11,7 +11,7 @@ import { AssignmentService } from 'src/app/services/assignment/assignment.servic
 export class AssignmentComponent implements OnInit {
   assignmentForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private assignmentService: AssignmentService) {}
+  constructor(private fb: FormBuilder, private assignmentService: AssignmentService, private router: Router) {}
 
   ngOnInit() {
     this.initForm();
@@ -55,5 +55,7 @@ export class AssignmentComponent implements OnInit {
   onCancel() {
     // Reset the form if user clicks cancel
     this.assignmentForm.reset();
+    //navigate back to admin
+    this.router.navigate(['/admin']);
   }
 }

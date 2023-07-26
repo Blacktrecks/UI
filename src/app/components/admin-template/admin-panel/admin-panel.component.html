@@ -206,8 +206,8 @@
           <i class='bx bx-filter' ></i>
         </div>
         <ul class="todo-list">
-          <li class="completed">
-            <p>Todo List</p>
+          <li *ngFor="let assignment of adminAssignments">
+            <p>{{ assignment.title }}</p>
             <i class='bx bx-dots-vertical-rounded' ></i>
           </li>
           <li class="completed">

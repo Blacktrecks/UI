@@ -15,7 +15,7 @@ export class AdminPanelComponent {
   adminAssignments: any[] = [];
   showAssignments: boolean = false;
   currentNoteIndex: number = 0; //index of the assignment 
-  constructor(private navbarToggleService: NavbarToggleService,public auth: AuthService, private router: Router, private notesService: AssignmentService) {
+  constructor(private navbarToggleService: NavbarToggleService,public auth: AuthService, private router: Router, private assignmentService: AssignmentService) {
     this.navbarToggleService.setShowNavbar(false);
   }
 
@@ -23,6 +23,8 @@ export class AdminPanelComponent {
   ngOnInit() {
     this.getAdminAssignments(); // Call the method to fetch user notes when the component is initialized
   }
+
+  
   
   //show user notes
   showUserNotes(){
@@ -37,7 +39,7 @@ export class AdminPanelComponent {
 
   
   getAdminAssignments() {
-    this.notesService.getAllAssignments().subscribe(
+    this.assignmentService.getAllAssignments().subscribe(
       (assignments) => {
         this.adminAssignments = assignments;
       },
@@ -58,7 +60,7 @@ export class AdminPanelComponent {
    
     };
 
-    this.notesService.addAssignment(newAssignment).subscribe(
+    this.assignmentService.addAssignment(newAssignment).subscribe(
       (addedAssignment) => {
         // Note added successfully, refresh the notes list
         this.getAdminAssignments();
