@@ -92,15 +92,15 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminPanelComponent,
-    // canActivate: [AuthGuard], // Protect this route with AuthGuard
-    // data: { roles: ['admin'] }, // Optionally, specify roles that are allowed to access this route
+    canActivate: [AuthGuard], // Protect this route with AuthGuard
+    data: { roles: ['admin'] }, // Optionally, specify roles that are allowed to access this route
   },
   //day 10 user user panel
   {
     path: 'userpanel',
     component: UserPanelComponent,
-    // data: { roles: ['user'] }, // Optionally, specify roles that are allowed to access this route
-    // canActivate: [AuthGuard] // Protect this route with AuthGuard
+    //data: { roles: ['user'] }, // Optionally, specify roles that are allowed to access this route
+    canActivate: [AuthGuard] // Protect this route with AuthGuard
   },
   //day 10 main panel
   {

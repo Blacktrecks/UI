@@ -22,6 +22,9 @@ export class AdminPanelComponent {
   
   ngOnInit() {
     this.getAdminAssignments(); // Call the method to fetch user notes when the component is initialized
+    this.auth.user$.subscribe(user => {
+      console.log(user)
+    })
   }
 
   

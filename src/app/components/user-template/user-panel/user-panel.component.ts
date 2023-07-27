@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { catchError, map, of, pipe } from 'rxjs';
 import { Note } from 'src/app/modules/note.model';
 import {  NotesService } from 'src/app/services/note/note.service';
 
@@ -10,15 +11,27 @@ import {  NotesService } from 'src/app/services/note/note.service';
   templateUrl: './user-panel.component.html',
   styleUrls: ['./user-panel.component.css'],
 })
-export class UserPanelComponent {
+export class UserPanelComponent implements OnInit {
   userNotes: any[] = [];
   showNotes: boolean = false;
   currentNoteIndex: number = 0; //index of the note
   constructor(public auth: AuthService, private router: Router, private notesService: NotesService) {}
   
 
+  
+
   ngOnInit() {
-    this.getUserNotes(); // Call the method to fetch user notes when the component is initialized
+    this.getUserNotes();
+    this.getUserData()
+    .pipe(
+      map((user) => {
+        console.log(user); // Check if the user information is available
+        this.getUserNotes();
+      }),
+      catchError(err => {return of(err)})
+    )
+    .subscribe()
+      
   }
   
   //show user notes
@@ -32,6 +45,9 @@ export class UserPanelComponent {
     this.currentNoteIndex = (this.currentNoteIndex + 1) % this.userNotes.length;
   }
 
+  getUserData(){
+    return this.auth.user$
+  }
   
   getUserNotes() {
     this.notesService.getAllNotes().subscribe(
@@ -73,9 +89,9 @@ export class UserPanelComponent {
     this.status = !this.status;       
   }
 
-  
   logout(): void {
     this.auth.logout();
+    this.router.navigate([""])
   }
 }
 

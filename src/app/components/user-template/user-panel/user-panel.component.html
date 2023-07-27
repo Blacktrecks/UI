@@ -157,10 +157,10 @@
         </div>
         <ul class="todo-list">
           <li class="not-completed">
-            <p>{{ userNotes[currentNoteIndex].content }}</p>
+            <p>{{ userNotes[currentNoteIndex]?.content }}</p>
             <i class='bx bx-dots-vertical-rounded'></i>
           </li>
-          <button (click)="showNextNote()">Next Note</button>
+          <button *ngIf="userNotes.length > 1" (click)="showNextNote()">Next Note</button>
           <li class="completed">
             <p>Todo List</p>
             <i class='bx bx-dots-vertical-rounded' ></i>

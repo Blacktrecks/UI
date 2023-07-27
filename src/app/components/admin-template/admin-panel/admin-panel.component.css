@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap');
 
 * {
   margin: 0;
@@ -13,22 +13,22 @@ a {
 li {
   list-style: none;
 }
-
 :root {
   --poppins: 'Poppins', sans-serif;
   --lato: 'Lato', sans-serif;
-  --light: #F9F9F9;
+  --light: #333;
   --blue: #3C91E6;
   --light-blue: #CFE8FF;
-  --grey: #eee;
+  --grey: #F5F5F5; /* Lighter shade of grey */
   --dark-grey: #AAAAAA;
   --dark: #342E37;
   --red: #DB504A;
   --yellow: #FFCE26;
   --light-yellow: #FFF2C6;
-  --orange: #FD7238;
+  --orange: #FFA500; /* Orange color */
   --light-orange: #FFE0D3;
 }
+
 
 html {
   overflow-x: hidden;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { Observable, map } from 'rxjs';
 import { NavbarToggleService } from 'src/app/services/navbar-toggle.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { NavbarToggleService } from 'src/app/services/navbar-toggle.service';
 })
 export class NavBarComponent implements OnInit {
   showNavbar!: boolean;
+  isAdmin!: Observable<boolean>;
 
   constructor(
     public auth: AuthService,
@@ -19,6 +21,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.showNavbar = this.navbarToggleService.getShowNavbar();
+    this.isAdmin = this.checkIfUserIsAdmin();
 
     // Subscribe to router events to detect navigation changes
     this.router.events.subscribe((event) => {
@@ -34,18 +37,20 @@ export class NavBarComponent implements OnInit {
     // Add the routes where you want to hide the navbar
     return url.includes('/admin') || url.includes('/userpanel');
   }
+
+  checkIfUserIsAdmin(): Observable<boolean> {
+    return this.auth.user$.pipe(
+      map(user => {
+        const userEmail = user?.email;
+        return userEmail === 'adminuser@gmail.com';
+      })
+    );
+  }
+
+  logout(): void {
+    // Redirect to http://localhost:4200 after logout
+    window.location.href = 'http://localhost:4200';
+  }
+  
+  
 }
-
-
-
-
-// navigateToAdminSection() {
-//   // ... navigate to the admin section logic
-//   this.navbarToogleService.setShowNavbar(false); // Hide the navbar when navigating to admin
-// }
-
-// navigateToOtherSection() {
-//   // ... navigate to other sections logic
-//   this.navbarToogleService.setShowNavbar(true); // Show the navbar when navigating to other sections
-// }
-

@@ -91,14 +91,44 @@ import { AssignmentComponent } from './components/assignment/assignment/assignme
     MatSnackBarModule,
    
   
-    AuthModule.forRoot({
+    /* AuthModule.forRoot({
       domain: 'dev-ohj5mjnh8a5o1m8l.us.auth0.com',
       clientId: 'EbNu4YDqqUpY3jKuHdJeMORBQul65rgW',
     
       authorizationParams: {
         redirect_uri:  'http://localhost:4200'
       }
-    }),
+    }), */
+    AuthModule.forRoot({
+      // The domain and clientId were configured in the previous chapter
+      domain: 'dev-ohj5mjnh8a5o1m8l.us.auth0.com',
+      clientId: '9DoVK92n7hJBlNjzXfzHUQTplPb0ovNh',     
+      
+         
+      authorizationParams: {
+        // Request this audience at user authentication time
+        audience: 'https://dev-ohj5mjnh8a5o1m8l.us.auth0.com/api/v2/',
+        redirect_uri: window.location.origin,
+    
+        
+      },    
+      httpInterceptor: {
+        allowedList: [
+          {
+            // Match any request that starts 'https://dev-8fjsmm0833klajbt.us.auth0.com/api/v2/' (note the asterisk)
+            uri: 'https://dev-ohj5mjnh8a5o1m8l.us.auth0.com/api/v2/*',
+            tokenOptions: {
+              authorizationParams: {
+                // The attached token should target this audience
+                audience: 'https://dev-ohj5mjnh8a5o1m8l.us.auth0.com/api/v2/',
+    
+              }
+            }
+          }
+        ]
+      }
+      
+    }),
   ],
   providers: [
     Auth0Service,

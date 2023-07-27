@@ -67,18 +67,20 @@ export class AppComponent {
 
     });
 
-    this.authService.getUserData().subscribe((user : any) => {
-      this.user = user
-
-      this.userAdd['id'] = this.user.sub
-      this.userAdd['name'] = this.user.name
-      this.userAdd['nickname'] = this.user.nickname
-      this.userAdd['email'] = this.user.email
-      this.userAdd['picture'] = this.user.picture
-
-
-      this.addUsers(this.userAdd)
+    this.authService.getUserData().subscribe((user: any) => {
+      if (user) {
+        this.user = user;
+  
+        this.userAdd['id'] = this.user.sub || '';
+        this.userAdd['name'] = this.user.name || '';
+        this.userAdd['nickname'] = this.user.nickname || '';
+        this.userAdd['email'] = this.user.email || '';
+        this.userAdd['picture'] = this.user.picture || '';
+  
+        this.addUsers(this.userAdd);
+      }
     })
+  
   }
 
   addUsers(user: any) {
